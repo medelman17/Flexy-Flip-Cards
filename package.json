@@ -1,0 +1,45 @@
+{
+  "name": "flexy-flipcards",
+  "version": "0.1.0",
+  "description": "Responsive Cards That Flip; Built With React",
+  "main": "build/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --watch",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/slashlaw/Flexy-Flip-Cards.git"
+  },
+  "author": "Michael Edelman <michael@slashlaw.io> (https://slashlaw.io)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/slashlaw/Flexy-Flip-Cards/issues"
+  },
+  "homepage": "https://github.com/slashlaw/Flexy-Flip-Cards#readme",
+  "peerDependencies": {
+    "react": "^16.2.0"
+  },
+  "dependencies": {
+    "react": "^16.2.0",
+    "webpack": "^3.11.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.1",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
+    "eslint": "^4.17.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.6.1",
+    "eslint-watch": "^3.1.3",
+    "polished": "^1.9.2",
+    "prop-types": "^15.6.0",
+    "styled-components": "^3.1.6"
+  }
+}
