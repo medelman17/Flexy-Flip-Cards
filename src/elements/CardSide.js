@@ -8,7 +8,6 @@ const CardSideWrapper = styled.div`
   height: 100%;
   width: 100%;
   background: ${props => props.backgroundColor ? props.backgroundColor : '#fff' };
-  overflow: hidden;
   backface-visibility: hidden;
   transition: all .7s ease;
   transform-style: preserve-3d;

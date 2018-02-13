@@ -53,7 +53,6 @@ class App extends Component {
 
 ## Available Props
 
-
 Note: Apart from `frontBackgroundColor` and `backBackgroundColor`, you can style your children however and by whatever means you want. That said, the following props are available: 
 
 Prop | Type | Explanation
@@ -65,3 +64,6 @@ backBackgroundColor | String | Sets background color of card back.
 backContainerStyle | Object | add additional styling for card back outer container. 
 backContentStyle | Object | add additional styling for card back inner container. 
 
+## Updates
+
+v0.1.1: fix for issue with Firefox 58 whereby janky animation occurrs if `transform-style: preserve-3d` and `overflow: hidden` are set at the same time. See [Bug](https://bugzilla.mozilla.org/show_bug.cgi?id=1431893)
