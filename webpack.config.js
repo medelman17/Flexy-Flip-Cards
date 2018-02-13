@@ -7,6 +7,9 @@ module.exports = {
     libraryTarget: 'commonjs2' // THIS IS THE MOST IMPORTANT LINE! :mindblow: I wasted more than 2 days until realize this was the line most important in all this guide.
   },
   module: {
+    loaders:[
+      { test: /\.js[x]?$/, exclude: /node_modules/, loader: 'babel-loader' }
+    ],
     rules: [
       {
         test: /\.js$/,
@@ -15,7 +18,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['env']
+            presets: ['@babel/preset-env'], 
           }
         }
       }
