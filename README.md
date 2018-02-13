@@ -1,23 +1,23 @@
 # Flexy Flip Cards
----
+
 Responsive cards that flip. Built with React, Styled-Components, and CSS Grid. `position: absolute` not required. 
 
+###**[Live Demo](https://build-valyszalvw.now.sh/).**
+
 ## Quick Overview
----
 
-Cards that flip are frickin' sweet. But, since they typically require developers to use set dimensions and `position: absolute`, they're a pain in the butt to style when you're not sure how much space you'll have (i.e., responsive design) or need (i.e., rendering random data). Not anymore. Flexy FlipCards, inspired by [React Flip Card](https://github.com/mzabriskie/react-flipcard), don't care what you put in them. Check it out: 
+Cards that flip are frickin' sweet. But, since they typically require developers to use set dimensions and `position: absolute`, they're a pain in the butt to style when you're not sure how much space you'll have (i.e., responsive design) or need (i.e., rendering random data). Not anymore. Flexy FlipCards, inspired by [React Flip Card](https://github.com/mzabriskie/react-flipcard), don't care what you put in them. Check it out.
 
-**[Live Demo](https://build-valyszalvw.now.sh/).**
 
 ## Install
----
+
 
 ```sh
 npm install --save flexy-flipcards
 ```
 
 ## Instructions
----
+
 
 1. FlexyFlipCard Requires Exactly Two Children
 ...The first child will be rendered on the front of the card. The second child will be rendered on the back. 
@@ -26,7 +26,7 @@ npm install --save flexy-flipcards
 ...The card component will search through your component tree and add an `onClick` funtion to whatever component has `ref='flipper'`
 
 ## Example
----
+
 
 ```javascript
 import React, { Component } from 'react';
@@ -52,7 +52,7 @@ class App extends Component {
 ```
 
 ## Available Props
----
+
 
 Note: Apart from `frontBackgroundColor` and `backBackgroundColor`, you can style your children however and by whatever means you want. That said, the following props are available: 
 
