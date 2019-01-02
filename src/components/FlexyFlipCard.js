@@ -27,29 +27,31 @@ class Card extends Component {
   toggleIsCardFlipped () {
     this.setState({
       isCardFlipped: !this.state.isCardFlipped,
+    }, () => {
+      this.props.onFlipCard({ isCardFlipped: this.state.isCardFlipped });
     })
   }
 
   findAndSetCardFlipper(childComponent, flipperRefName) {
     // First, check to see whether the childComponent we are looking at
     // should be set as the card flipper. If so, we'll clone the child
-    // using React.cloneElement, attach an onClick method to toggle 
+    // using React.cloneElement, attach an onClick method to toggle
     // this.state.isCardFlipped, and return our cloned element to be put
-    // back in the tree. 
+    // back in the tree.
     if (childComponent.ref === flipperRefName) {
       return React.cloneElement(childComponent, {
         onClick: this.toggleIsCardFlipped.bind(this)
       });
     }
-    // Now, because we want to traverse the entire child component tree,  
-    // we need to check whether the child has children of its own. And, if 
-    // so, we'll call findAndSetCardFlipper on the child (i.e., recursively). 
-    // Before doing so, however, we will ensure that the child is a valid 
-    // React object because our methodology relies on that being so. 
-    else if (React.Children.count(childComponent) > 0 && React.isValidElement(childComponent)) { 
+    // Now, because we want to traverse the entire child component tree,
+    // we need to check whether the child has children of its own. And, if
+    // so, we'll call findAndSetCardFlipper on the child (i.e., recursively).
+    // Before doing so, however, we will ensure that the child is a valid
+    // React object because our methodology relies on that being so.
+    else if (React.Children.count(childComponent) > 0 && React.isValidElement(childComponent)) {
       return React.cloneElement(childComponent, {
         children: React.Children.map(
-          childComponent.props.children, 
+          childComponent.props.children,
           grandchild =>
             this.findAndSetCardFlipper(grandchild, flipperRefName)
         ),
@@ -57,16 +59,16 @@ class Card extends Component {
     }
     // If componenetChild is neither destined to be the card flipper nor lucky
     // enough to have children of its own, we'll just return it to be put back
-    // into the tree. 
+    // into the tree.
     return childComponent;
   }
 
   render() {
     // Here, we'll take the children we were given as props and check to see which
-    // of the lucky lads has been put in control of flipping the card. Note, 
-    // React.Children.map returns an array. See https://reactjs.org/docs/react-api.html.  
+    // of the lucky lads has been put in control of flipping the card. Note,
+    // React.Children.map returns an array. See https://reactjs.org/docs/react-api.html.
     const children = React.Children.map(
-      this.props.children, 
+      this.props.children,
       child => this.findAndSetCardFlipper(child, this.props.flipperID || 'flipper')
     );
 
@@ -113,4 +115,8 @@ Card.propTypes = {
   backContentStyle: PropTypes.object,
 }
 
-export default Card; 
+Card.defaultProps = {
+  onFlipCard: ({ isCardFlipped }) => isCardFlipped
+}
+
+export default Card;
